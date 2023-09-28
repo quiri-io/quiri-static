@@ -1,26 +1,35 @@
+'use client'
+
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
+const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfKblwtIyzJXhatjwT7IuVrN_XRdwBAm4s4Ss8rl1v7OIJzpQ/formResponse?usp=pp_url&entry.180773355=Nigel&entry.98408948=kahler.maynard@gmail.com'
 
-const ContactForm = ({ }) => (
-  <form className="flex flex-col items-center mx-16">
+function ContactForm() {
+  return <form 
+    className="flex flex-col items-center mx-16"
+    method="get"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSfKblwtIyzJXhatjwT7IuVrN_XRdwBAm4s4Ss8rl1v7OIJzpQ/formResponse"
+  >
     <input
       type="text"
       id="name"
-      name="name"
+      name="entry.180773355"
       placeholder="Name"
-      value=""
       required
-      className="mb-6 p-2 border-b-2 border-black w-full"
+      className="mb-6 p-2 border-b-2 border-black w-full text-black"
     />
     <input
       type="email"
       id="email"
-      name="email"
+      name="entry.98408948"
       placeholder="Email"
-      value=""
       required
-      className="mb-6 p-2 border-b-2 border-black w-full"
+      className="mb-6 p-2 border-b-2 border-black w-full text-black"
+    />
+    <input
+      type="hidden"
+      name="usp"
+      value="pp_url"
     />
     <div>
       <button
@@ -33,6 +42,6 @@ const ContactForm = ({ }) => (
       </button>
     </div>
   </form>
-);
+};
 
 export default ContactForm;
