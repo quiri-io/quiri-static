@@ -6,7 +6,7 @@ const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfKblwtIyzJXhatjwT7IuV
 
 function ContactForm() {
   return <form 
-    className="flex flex-col items-center mx-16"
+    className="flex flex-col items-center xl:mx-16"
     method="get"
     action="https://docs.google.com/forms/d/e/1FAIpQLSfKblwtIyzJXhatjwT7IuVrN_XRdwBAm4s4Ss8rl1v7OIJzpQ/formResponse"
   >
@@ -34,9 +34,9 @@ function ContactForm() {
     <div>
       <button
         type="submit"
-        className="bg-dark-orange rounded-md border-2 border-black px-32 py-4"
+        className="bg-dark-orange rounded-md border-2 border-black px-10 xl:px-32 py-4"
       >
-        <div className="text-dark-blue text-4xl">
+        <div className="text-dark-blue text-2xl xl:text-4xl">
           Get Updates
         </div>
       </button>
