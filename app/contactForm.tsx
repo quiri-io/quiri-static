@@ -96,7 +96,7 @@ const NewContactForm = () => {
                         Thank you for your interest!
                     </div>
                     <div className="text-quiri-teal text-3xl">
-                        We'll be in touch soon.
+                        We&apos;ll be in touch soon.
                     </div>
                 </div>
             </div>
