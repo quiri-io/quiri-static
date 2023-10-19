@@ -10,7 +10,7 @@ const NewContactForm = () => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: any) => {
     e.preventDefault();
 
     fetch(
