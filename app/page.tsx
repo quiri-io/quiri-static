@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import ContactForm from './contactForm';
 
 export default function Home() {
@@ -71,7 +70,7 @@ export default function Home() {
         <div className="font-sans text-dark-blue text-l xl:text-2xl mb-10 font-thin">
           We are working hard on releasing a first version of our iOS and Android app soon.
         </div>
-        <div className="p-10 mb-16 xl:mx-16 mb-3 bg-white rounded-md shadow-[15px_17px_4px_0_rgba(53,195,209,1)] xl:shadow-[30px_34px_4px_0_rgba(53,195,209,1)] max-w-2xl">
+        <div className="p-10 mb-16 xl:mx-16 mb-3 bg-white rounded-md shadow-[15px_17px_15px_0_rgba(53,195,209,1)] xl:shadow-[30px_34px_15px_0_rgba(53,195,209,1)] max-w-2xl">
           <div className="mb-3 text-dark-blue text-2xl xl:text-3xl ">
             Leave your email to stay tuned about news updates! 
           </div>

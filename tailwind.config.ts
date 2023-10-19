@@ -20,7 +20,9 @@ const config: Config = {
         'pale-purple': '#E8F1FF',
         'pale-orange': '#FFDBCC',
         'dark-blue': '#1B345C',
-        'dark-orange': '#FF9568'
+        'dark-orange': '#FF9568',
+        'quiri-orange': '#FF8652',
+        'quiri-teal': '#35C3D1'
       },
     },
   },
