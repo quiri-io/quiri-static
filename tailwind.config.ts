@@ -22,7 +22,8 @@ const config: Config = {
         'dark-blue': '#1B345C',
         'dark-orange': '#FF9568',
         'quiri-orange': '#FF8652',
-        'quiri-teal': '#35C3D1'
+        'quiri-teal': '#35C3D1',
+        'grey': '#6B6B6B'
       },
     },
   },
