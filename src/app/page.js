@@ -6,7 +6,7 @@ import {
   LightBulbIcon,
   LinkIcon,
 } from "@heroicons/react/24/outline";
-import { FaRegCompass } from "react-icons/fa";
+import { FaRegCompass, FaGithub } from "react-icons/fa";
 import { TbBrain } from "react-icons/tb";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,8 +17,51 @@ import "swiper/css/navigation";
 
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCtaLearnMoreVisible, setIsCtaLearnMoreVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    fetch(
+      `https://northamerica-northeast2-quiri-domain-401614.cloudfunctions.net/landing-page-submit`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+        })
+      }
+    ).then((response) => {
+      console.log(response);
+      // if (response.status === 200) {
+      //   setShowModal(true);
+      // }
+    }).catch((error) => {
+      console.log(error);
+    });
+
+    setFormData({ name: '', email: '' });
+
+    // Reset button state after 5 seconds
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 3000);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div>
       {" "}
@@ -440,24 +483,42 @@ export default function Home() {
                   </div>
                 )}
 
-                <form className="mt-6 space-y-3">
+                <form onSubmit={handleFormSubmit} className="mt-6 space-y-3">
                   <input
                     type="text"
+                    id="name"
+                    name="name"
                     placeholder="Name"
+                    required
                     className="w-full bg-transparent border-b border-black/20 px-1 py-2 text-sm outline-none focus:border-teal-500"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
                   <input
                     type="email"
+                    id="email"
+                    name="email"
                     placeholder="Email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-transparent border-b border-black/20 px-1 py-2 text-sm outline-none focus:border-teal-500"
                   />
+                  {/* <input
+                    type="text"
+                    placeholder="Anything else?"
+                    className="w-full bg-transparent border-b border-black/20 px-1 py-2 text-sm outline-none focus:border-teal-500"
+                  /> */}
                   <button
-                    type="button"
-                    className="w-full bg-[#FFE8DE] text-black border border-gray-800 rounded-lg px-5 py-4 font-plus-jakarta-sans font-semibold text-[26px]"
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full ${isSubmitting ? 'bg-green-500 text-white' : 'bg-[#FFE8DE] text-black'
+                      } border border-gray-800 rounded-lg px-5 py-4 font-plus-jakarta-sans font-semibold text-[26px] transition-colors duration-300`}
                   >
-                    Get Updates
+                    {isSubmitting ? 'Talk soon!' : 'Get Updates'}
                   </button>
                 </form>
+
               </div>
             </div>
 
@@ -469,20 +530,33 @@ export default function Home() {
                   className="font-manrope font-medium text-4xl md:text-[54px] leading-tight md:leading-[64px] tracking-[-0.02em]"
                   style={{ color: "#344054" }}
                 >
-                  Downloaded the app and want to join our community of first
-                  users?
+                  Quiri is open source!
                 </h2>
-                <p className="mt-3 text-lg md:text-[23.06px] font-plus-jakarta-sans text-[#505C6D]">
-                  Scan the QR code with your phone or follow the link to test
-                  Quiri with other like-minded communicators!
-                </p>
-                <div className="mt-6 flex justify-center">
-                  <Image
-                    src="/Quiri Community.png"
-                    alt="QR Code"
-                    width={112}
-                    height={112}
-                  />
+                <div className="mt-6 flex flex-col justify-center gap-4 w-full">
+                  <div>
+                    <a
+                      href="https://quiri-io.github.io/quiri-docs/"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-800 py-3 px-6 rounded-[50px] border border-gray-300 hover:bg-gray-100 transition-colors"
+                    >
+                      <Image
+                        src="/quirilogoblank.png"
+                        alt="Quiri Logo"
+                        width={32}
+                        height={32}
+                        className="h-8 w-8"
+                      />
+                      Check out our friendly docs
+                    </a>
+                  </div>
+                  <div>
+                    <a
+                      href="https://github.com/quiri-io"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-800 py-3 px-6 rounded-[50px] border border-gray-300 hover:bg-gray-100 transition-colors"
+                    >
+                      <FaGithub className="h-6 w-6" />
+                      Browse our repositories
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
