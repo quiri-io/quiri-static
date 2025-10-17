@@ -249,14 +249,15 @@ export default function Home() {
               {/* Mockup Images - Centered */}
               <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-8 z-10">
                 <Image
-                  src="/inbox.png"
+                  src="/inbox.svg"
                   alt="Inbox"
                   width={258}
                   height={553}
                   className="rounded-[29px] shadow-lg"
                 />
                 <Image
-                  src="/chatscreen.png"
+                  // src="/chatscreen.png"
+                  src="/chatscreen.svg"
                   alt="Chat"
                   width={257}
                   height={555}
@@ -392,7 +393,7 @@ export default function Home() {
                     <h3 className="text-xl font-semibold mb-2">Depolarizing</h3>
                     <p className="text-gray-700">
                       Due to its chat space design, conversations reward
-                      curiosity and creating a safe space for being heard.
+                      curiosity, creating a safe space for being heard.
                     </p>
                   </div>
                 </div>
